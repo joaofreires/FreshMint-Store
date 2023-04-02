@@ -1,4 +1,13 @@
-on: [push, pull_request]
+name: Deno
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -10,23 +19,20 @@ jobs:
     name: Test with Deno ${{ matrix.deno }}
 
     steps:
-      - uses: actions/checkout@master
+     - name: Setup repo
+        uses: actions/checkout@v3
 
       - name: Setup Deno
-        uses: denolib/setup-deno@master
+        # uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
         with:
-          deno-version: ${{ matrix.deno }}
-
-      - name: Setup Node
-        uses: actions/setup-node@master
-        with:
-          node-version: 12
+          deno-version: v1.x
 
       - name: Print deno version
         run: deno --version
 
-      - name: Check format
-        run: deno fmt --check **/*.ts
+      - name: Run linter
+        run: deno lint
 
       - name: Run tests
         run: deno *.test.ts
