@@ -19,7 +19,7 @@ jobs:
     name: Test with Deno ${{ matrix.deno }}
 
     steps:
-     - name: Setup repo
+      - name: Setup repo
         uses: actions/checkout@v3
 
       - name: Setup Deno
