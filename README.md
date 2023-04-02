@@ -1,9 +1,10 @@
-# Fresh Mint Store
+# FreshMint Store
 
-Another lightweight state management library compatible with Preact/React
-external store interface to share state among Fresh islands. The library offers
-a simple way to manage the state of your Islands saving the state data to
-different storage options, such as window, sessionStorage, and localStorage.
+Another lightweight state management library that is compatible with
+Preact/React and has an external store interface to share state among Fresh
+islands. The library should offer a simple way to manage the state of your
+islands and allow for saving state data to different storage options, such as
+the window, sessionStorage, and localStorage.
 
 ## Usage
 
@@ -52,8 +53,8 @@ export default function Counter() {
 }
 ```
 
-To access from multiple Islands, it's useful to keep a storage file and import
-from there the `preactCreateStore` result hooks.
+If you need to access state from multiple islands, it can be useful to keep a
+storage file and import the `preactCreateStore` result hooks from there.
 
 ```tsx
 // store.ts
@@ -64,9 +65,9 @@ import { setState, useState } from "../stores.ts";
 ...
 ```
 
-Note that you can pass namespaces to your stores if you need. Keep in mind that
-stores with the same namespace will share the same object and it can break your
-components if not handled well.
+Note that you can pass namespaces to your stores if needed. However, keep in
+mind that stores with the same namespace will share the same object, which can
+break your components if not handled properly.
 
 The `CreateStoreOptions` object allows you to configure the behavior of your
 store:
@@ -74,9 +75,9 @@ store:
 - `namespace`: A custom namespace for your store. Defaults to a random
   namespace.
 - `provider`: The storage provider to use ("window", "sessionStore",
-  "localStorage"). Defaults to "window". Be careful when choosing session or
-  localStorage, it could be helpful to share state through pages and can add
-  more complexity and non-deterministics bugs.
+  "localStorage"). Defaults to "window". Be careful when choosing between
+  session or localStorage. While it can be helpful to share state across pages,
+  it can also add complexity and introduce non-deterministic bugs.
 - `forceInitial`: A boolean indicating whether to use the initial state passed
   to the store, even if there's data in the storage. Defaults to false. For
   example:
@@ -91,8 +92,8 @@ const options = {
 const [useStore, setState] = preactCreateStore(initialState, options);
 ```
 
-The `preactCreateStore` is simplification for the following code: If you are
-using other library than preact, it can be useful to integrate.
+`preactCreateStore` is a simplification of the following code. If you are using
+a library other than Preact, it can be useful to integrate this functionality.
 
 ```tsx
 import { useSyncExternalStore } from "preact/compat";
