@@ -2,7 +2,7 @@ import {
   assert,
   assertEquals,
   assertNotEquals,
-} from "https://deno.land/std/testing/asserts.ts";
+} from "https://deno.land/std@0.182.0/testing/asserts.ts";
 import { createStore } from "./store.ts";
 
 Deno.test("createStore: should create a store with initial state", () => {

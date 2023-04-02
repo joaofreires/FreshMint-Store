@@ -3,7 +3,7 @@ import {
   assert,
   assertEquals,
   assertNotEquals,
-} from "https://deno.land/std/testing/asserts.ts";
+} from "https://deno.land/std@0.182.0/testing/asserts.ts";
 
 import { getProvider } from "./storage_providers.ts";
 
