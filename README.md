@@ -11,7 +11,7 @@ the window, sessionStorage, and localStorage.
 First import the preactCreateStore function:
 
 ```typescript
-import { preactCreateStore } from "./preact_mint_store.ts";
+import { preactCreateStore } from "@mint/preact.ts";
 ```
 
 Then create a store with an optional initial state and options:
